@@ -16,12 +16,13 @@ class SupportController extends Controller
 
         return view('admin/supports/index', compact('supports'));
     }
-    public function show(string|int $id){
+    public function show(string|int $id)
+    {
         // Support::find($id)
         // Support::where('id',$id)->first();
         // Support::where('id','!=',$id)->first();
-        
-        if(!$support = Support::find($id)){
+
+        if (!$support = Support::find($id)) {
             return back();
         };
         return view('admin/supports/show', compact('support'));
@@ -38,15 +39,16 @@ class SupportController extends Controller
         $support =  $support->create($data);
         return redirect()->route('supports.index');
     }
-    public function edit(Support $support, string|int $id )
+    public function edit(Support $support, string|int $id)
     {
-        if (!$support = $support->where('id',$id)->first()){
+        if (!$support = $support->where('id', $id)->first()) {
             return back();
         }
         return view('admin/supports.edit', compact('support'));
     }
-    public function update(Request $request,Support $support, string $id){
-        if(!$support = $support->find($id)){
+    public function update(Request $request, Support $support, string $id)
+    {
+        if (!$support = $support->find($id)) {
             return back();
         };
 
@@ -55,8 +57,17 @@ class SupportController extends Controller
         // $support->save();
 
         $support->update($request->only([
-            'subject','body'
+            'subject', 'body'
         ]));
+        return redirect()->route('supports.index');
+    }
+    public function destroy(Support $support, string|int $id,)
+    {
+        if (!$support = $support->find($id)) {
+            return back();
+        };
+        $support->delete();
+
         return redirect()->route('supports.index');
     }
 }
