@@ -5,21 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+        {{-- CSS DO BOOTSTRAP --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Detalhes</title>
 </head>
 
 <body>
-    <h1>Detalhes da dúvida {{ $support->id }}</h1>
+    <h1 class="ml-2">Detalhes da dúvida {{ $support->id }}</h1>
     <ul>
         <li>Assunto {{ $support->subject }}</li>
         <li>Status {{ $support->status }}</li>
         <li>Descrição {{ $support->body }}</li>
     </ul>
-    <form action="{{route('supports.destroy',$support->id)}}"method='POST'>
-        @csrf
-        @method('DELETE')
-        <button type="submit">Deletar</button>
-    </form>
+    <a href="{{route("supports.index")}}" class="btn btn-secondary ml-3">Voltar</a>
 </body>
 
 </html>
