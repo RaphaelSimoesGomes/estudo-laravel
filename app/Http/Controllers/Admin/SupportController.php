@@ -15,7 +15,7 @@ class SupportController extends Controller
         $supports = $support->all();
 
 
-        return view('admin/supports/index', compact('supports'));
+        return view('index', compact('supports'));
     }
     public function show(string|int $id)
     {
@@ -38,7 +38,7 @@ class SupportController extends Controller
         $data['status'] = 'a';
 
         $support =  $support->create($data);
-        return redirect()->route('supports.index');
+        return redirect()->route('index');
     }
     public function edit(Support $support, string|int $id)
     {
@@ -61,7 +61,7 @@ class SupportController extends Controller
         //     'subject', 'body'
         // ]));
         $support->update($request->validated());
-        return redirect()->route('supports.index');
+        return redirect()->route('index');
     }
     public function destroy(Support $support, string|int $id,)
     {
@@ -70,6 +70,6 @@ class SupportController extends Controller
         };
         $support->delete();
 
-        return redirect()->route('supports.index');
+        return redirect()->route('index');
     }
 }

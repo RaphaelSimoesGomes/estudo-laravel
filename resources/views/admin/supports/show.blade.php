@@ -17,7 +17,7 @@
         <li>Status {{ $support->status }}</li>
         <li>Descrição {{ $support->body }}</li>
     </ul>
-    <a href="{{route("supports.index")}}" class="btn btn-secondary ml-3">Voltar</a>
+    <a href="{{route("index")}}" class="btn btn-secondary ml-3">Voltar</a>
 </body>
 
 </html>

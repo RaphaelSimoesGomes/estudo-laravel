@@ -22,7 +22,7 @@
         @method('PUT')
         <input type="text" place holder="Assunto" name="subject" value="{{ $support->subject }}" class="input-group-text ml-2 mb-2">
         <textarea name="body" cols="30" rows="5" placeholder="Descrição" class="form-control col-md-4 ml-2 mb-2">{{ $support->body }}</textarea>
-        <button type="submit" class="btn btn-primary btn-sml  ml-2">Enviar</button>     <a href="{{route("supports.index")}}" class="btn btn-secondary ">Voltar</a>
+        <button type="submit" class="btn btn-primary btn-sml  ml-2">Enviar</button>     <a href="{{route("index")}}" class="btn btn-secondary ">Voltar</a>
     </form>
 </body>
 
